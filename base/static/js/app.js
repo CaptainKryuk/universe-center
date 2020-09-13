@@ -50,13 +50,27 @@ document.addEventListener("DOMContentLoaded", function() {
 	// slideshow
 
 	// slideshow images declared in index.html file
-	const slideshow = document.querySelector(`.slideshow_images`)
+	const slideshow = document.querySelector(`.slideshow_image`)
 
-	setTimeout(() => {
-		changeImage(slideshow, 'DSC_7097.jpg')
-	}, 2000)
+	let i = 0
+	a_images = images.split(';')
+	let time = 3000
+
+	changeImage(slideshow, i, a_images)
+
 });
 
-function changeImage(elem, img_url) {
-	elem.src = '/media/' + img_url
+
+function changeImage(elem, i, images) {
+	elem.src = '/media/' + images[i]
+
+	if (i < images.length - 1) {
+		i++
+	} else {
+		i = 0
+	}
+
+	setTimeout(() => {
+		changeImage(elem, i, images)
+	}, 3000)
 }

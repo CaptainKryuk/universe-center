@@ -39,7 +39,7 @@
             <button class="button button--light">Первая тренировка - бесплатно</button>
         </div>
         <div class="promo__img">
-            <img class="slideshow_images" src="/media/{{ first_image }}" alt="">
+            <img class="slideshow_image" src="/media/{{ first_image }}" alt="">
         </div>
     </section>
     <section class="section why">
@@ -334,7 +334,7 @@
 
 {% load js %}
 <script type="text/javascript"> 
-    var images = "{{ images }}"
+    var images = "{{ str_images }}"
  </script>
 
 {% endblock %}
