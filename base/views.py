@@ -2,12 +2,28 @@ from django.shortcuts import render
 from universe.settings import MEDIA_ROOT, BASE_DIR
 import imghdr
 import os
+from base.models import SportSection, Coach
 
 # Create your views here.
 
 def index(request):
+
+    # get slideshow
     media_url = os.path.join(BASE_DIR, 'media')
-    images = [img for img in os.listdir(media_url) if imghdr.what(media_url + '/' + img)]
+    images = [img for img in os.listdir(media_url) if os.path.isfile(media_url + '/' + img) and imghdr.what(media_url + '/' + img)]
+
+    # get sections
+    sections = SportSection.objects.all()
+
+    # get coaches
+    coaches = Coach.objects.all()
+    
+
     return render(request, 'index.html', context={'images': images, 
                                                   'first_image': images[0],
-                                                  'str_images': ';'.join(images) })
+                                                  'last_image': images[len(images) - 1],
+                                                  'str_images': ';'.join(images),
+                                                  # sections
+                                                  'sections': sections,
+                                                  # coaches
+                                                  'coaches': coaches })

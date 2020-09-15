@@ -6,3 +6,7 @@ pytz
 # need
 django-environ
 psycopg2-binary
+
+django-markdown
+markdown 
+bleach

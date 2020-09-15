@@ -94,7 +94,7 @@
     top: 0
     background-color: $colorBg
     border-bottom: 1px solid #E3E3E4
-    z-index: 1
+    z-index: 20
     &__top
         display: none
     &__bottom
@@ -399,7 +399,7 @@
     .title
         display: -webkit-box
         -webkit-box-orient: vertical
-        -webkit-line-clamp: 2
+        // -webkit-line-clamp: 2
         text-overflow: ellipsis
         overflow: hidden
     .props
@@ -463,23 +463,43 @@
             text-align: center
         &__desc
             margin-bottom: 17px
+
         &__img
             position: relative
-            margin-left: -$padding
-            margin-right: -$padding
             text-align: center
             overflow: hidden
-            .wrapper
-                margin: 0 auto
-                overflow: auto
-            &::after
-                display: block
-                position: absolute
-                content: ''
-                bottom: 0
+            padding: 20px
+            border: 1px solid #e2e1dd
+            margin-bottom: 50px
+
+            img
                 width: 100%
-                height: 26px
-                background-color: $colorBg
+                max-width: 542px
+                height: auto
+                
+
+        // &__img
+        //     position: relative
+        //     margin-left: -$padding
+        //     margin-right: -$padding
+        //     text-align: center
+        //     overflow: hidden
+        //     max-height: 300px
+
+        //     .wrapper
+        //         margin: 0 auto
+        //         overflow: auto
+
+        //         img 
+        //             max-height: 500px
+        //     &::after
+        //         display: block
+        //         position: absolute
+        //         content: ''
+        //         bottom: 0
+        //         width: 100%
+        //         height: 26px
+        //         background-color: $colorBg
         .list
             display: block
             margin: 0
@@ -526,7 +546,7 @@
                     bottom: 6px
                     width: 100%
                     height: 12px
-                    background-color: #FAD1DF
+                    background-color: #bdeafc
                     z-index: -1          
         > p.text
             margin-bottom: 40px
@@ -549,39 +569,16 @@
             box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.03)
             .title
                 position: relative
-                margin-bottom: 6px
+                display: inline-block
                 font-size: 18px
                 font-weight: 700
-                &::before
-                    display: block
-                    position: absolute
-                    content: ''
-                    top: 1px
-                    left: -32px
-                    width: 24px
-                    height: 24px
-                    background-position: center
-                    background-size: contain
-                    background-repeat: no-repeat
-
-        .list__item--saas .title::before
-            background-image: url('../images/dest/icon--saas.svg')
-
-        .list__item--e-commerce .title::before
-            background-image: url('../images/dest/icon--e-commerce.svg')
-
-        .list__item--gdpr .title::before
-            background-image: url('../images/dest/icon--gdpr.svg')
-
-        .list__item--web .title::before
-            background-image: url('../images/dest/icon--web.svg')
-
-        .list__item--mobile .title::before
-            background-image: url('../images/dest/icon--mobile.svg')
-
-        .list__item--users .title::before
-            background-image: url('../images/dest/icon--users.svg')
-
+                top: 5px
+            
+            img
+                position: relative
+                width: 40px
+                height: 40px
+                left: -6px
     .clients
         .list
             display: flex
@@ -611,6 +608,7 @@
             margin-bottom: 34px
             padding-top: 60px
             background-color: #130E20
+            z-index: 10
             .text
                 color: #FFFFFF
                 text-align: left
@@ -669,6 +667,7 @@
             justify-content: space-between
             flex-wrap: wrap
             &__item
+                position: relative
                 display: flex
                 align-items: center
                 justify-content: space-between
@@ -679,6 +678,22 @@
                 background-color: #FFFFFF
                 border-radius: 12px
                 box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05)
+
+            &__img
+                display: flex
+                align-items: center
+                justify-content: center
+                padding-bottom: 30px
+                width: 100%
+                
+                .coach_photo 
+                    width: 200px
+                    height: 200px
+                    object-fit: cover
+                    border-radius: 50%
+                    border: 1px solid $color4
+                    filter: drop-shadow(-4px 4px 12px rgba(0, 0, 0, 0.25))
+
                 > .text
                     display: -webkit-box
                     -webkit-box-orient: vertical
@@ -687,8 +702,9 @@
                     margin-bottom: 24px
                     text-overflow: ellipsis
                     overflow: hidden
+
             .author
-                width: 65%
+                width: 100%
                 .text
                     display: inline-block
                     width: 100%
@@ -698,11 +714,18 @@
                 &__position
                     font-size: 14px
                     color: $color2
-            .company-img
-                width: auto
-                max-width: 94px
-                height: auto
-                max-height: 21px
+
+            .additional
+                margin-top: 10px
+
+            .coach__section
+                position: absolute
+                font-weight: 700
+                bottom: 15px
+                right: 15px
+                font-size: 24px
+                color: #cfcfcf
+                text-transform: uppercase
 
     .benefits
         .list
@@ -718,34 +741,46 @@
                 margin: 0
                 margin-bottom: 38px
                 padding: 0
-                padding-top: 184px
+                padding-top: 84px
                 text-align: center
-                &::before
-                    display: block
-                    position: absolute
-                    content: ''
-                    top: 21px
-                    left: 50%
-                    width: 132px
-                    height: 132px
-                    text-align: center
+                justify-content: center
+
+                img
+                    width: 150px
+                    height: 150px
                     border-radius: 50%
-                    background-color: #E3E3E4
-                    background-repeat: no-repeat
-                    background-size: contain
-                    background-position: center
-                    overflow: hidden
-                    transform: translateX(-50%)
-            &__item:nth-child(1)::before
-                background-image: url('../images/dest/icon--benefits-1.png')
-            &__item:nth-child(2)::before
-                background-image: url('../images/dest/icon--benefits-2.png')
-            &__item:nth-child(3)::before
-                background-image: url('../images/dest/icon--benefits-3.png')
-            &__item:nth-child(4)::before
-                background-image: url('../images/dest/icon--benefits-4.png')
-            &__item:last-child
-                margin-bottom: 0
+                    object-fit: cover
+                    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))
+
+                p
+                    margin-top: 15px
+            //     &::before
+            //         display: block
+            //         position: absolute
+            //         content: ''
+            //         top: 21px
+            //         left: 50%
+            //         width: 132px
+            //         height: 132px
+            //         text-align: center
+            //         border-radius: 50%
+            //         background-color: #E3E3E4
+            //         background-repeat: no-repeat
+            //         background-size: contain
+            //         background-position: center
+            //         overflow: hidden
+            //         transform: translateX(-50%)
+                   
+            // &__item:nth-child(1)::before
+            //     background-image: url('../images/dest/sad/1.jpg')
+            // &__item:nth-child(2)::before
+            //     background-image: url('../images/dest/sad/2.jpg')
+            // &__item:nth-child(3)::before
+            //     background-image: url('../images/dest/sad/3.jpg')
+            // &__item:nth-child(4)::before
+            //     background-image: url('../images/dest/sad/4.jpg')
+            // &__item:last-child
+            //     margin-bottom: 0
 
     .test
         .wrapper
@@ -782,13 +817,18 @@
     .section-news
         text-align: center
         .news
+            display: flex
+            align-items: flex-start
             margin-bottom: 20px
-            padding: 18px 20px 16px 47px
+            padding: 18px 20px 16px 17px
             text-align: left
             background-color: #FFFFFF
             border: 1px solid #F4F2E8
             border-radius: 5px
             box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.03)
+
+            img
+                margin-right: 20px
             .title
                 margin-bottom: 7px
             .text > a
@@ -850,6 +890,10 @@
     position: relative
     margin-bottom: 80px
     padding: 0 $padding
+
+    .footer_logo
+        // width: 250px
+        margin-bottom: 20px
     .menu
         margin-bottom: 35px
         &__item
@@ -1209,15 +1253,15 @@
             padding-right: $padding
             > *
                 max-width: unset
-            &:last-child
-                margin-bottom: unset
+            // &:last-child
+            //     margin-bottom: unset
         .promo
             display: flex
             align-items: center
             justify-content: space-between
             flex-wrap: wrap
             margin-bottom: 65px
-            padding-top: 115px
+            padding-top: 55px
             &__desc
                 width: 50%
                 margin-bottom: 34px
@@ -1233,7 +1277,7 @@
                     display: inline-block
                     width: auto
                     padding: 20px
-                    border: 1px solid #F4F2E8
+                    border: 1px solid #e2e1dd
                     border-radius: 10px
                     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.03)
             .text
@@ -1261,11 +1305,11 @@
                     padding-left: 17%
                     padding-right: 17%
             &__img
-                width: 65%
+                width: 55%
+                margin-right: 50px
                 &::after
                     display: none 
                 .wrapper
-                    padding-left: 49px
                     overflow: hidden
                 img
                     width: 100%
@@ -1369,12 +1413,12 @@
 
         .section-news,
         .section-events
+            margin-bottom: 154px
             position: relative
             display: flex
             align-items: stretch
             justify-content: space-between
             flex-wrap: wrap
-            margin-bottom: 54px
             .section__title
                 width: 100%
                 padding-left: 20%

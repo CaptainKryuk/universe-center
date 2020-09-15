@@ -58,6 +58,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	changeImage(slideshow, i, a_images)
 
+	// reverse slideshow
+	const r_slideshow = document.querySelector(`.r_slideshow_image`)
+	changeImageReverse(r_slideshow, a_images.length - 1, a_images)
+
 });
 
 
@@ -72,5 +76,19 @@ function changeImage(elem, i, images) {
 
 	setTimeout(() => {
 		changeImage(elem, i, images)
+	}, 3000)
+}
+
+function changeImageReverse(elem, i, images) {
+	elem.src = '/media/' + images[i]
+
+	if (i > 0) {
+		i--
+	} else {
+		i = images.length - 1
+	}
+
+	setTimeout(() => {
+		changeImageReverse(elem, i, images)
 	}, 3000)
 }

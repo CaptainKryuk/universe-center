@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load markup_tags %}
+
 {% block content %}
 <header class="header">
     <div class="header__top">
@@ -7,7 +9,7 @@
         <a href="mailto:info@b-152.ru" class="link link--email">info@universe-center.ru</a>
         <a href="tel:+74953453434" class="link link--phone">+ 7 (495) 999 99 99</a>
         <a href="#callback" class="modal button button--light button--callback">Заказать звонок</a>
-        <a href="#login" class="modal button button--dark button--login">Войти</a>
+        <a href="#login" class="modal button button--dark button--login"></a>
     </div>
     <nav class="header__bottom">
         <div class="toggle">
@@ -49,7 +51,7 @@
         </div>
         <div class="why__img">
             <div class="wrapper">
-                <img src="/static/images/dest/table.svg" alt="test">
+                <img class="r_slideshow_image" src="/media/{{ last_image }}" alt="test">
             </div>
         </div>
         <div class="why__info">
@@ -64,70 +66,48 @@
         <h2 class="text section__title">Мы <span>помогаем</span> составить ваши документы</h2>
         <p class="text text--light">Политики конфиденциальности и&nbsp;другие</p>
         <ul class="list">
-            <li class="list__item list__item--saas">
-                <p class="text title">Для SAAS-приложения</p>
-                <p class="text">Мы проведём тщательный анализ и&nbsp;разработаем для&nbsp;вас все необходимые документы и&nbsp;рекомендации.</p>
+            {% for sport in sections %}
+            <li class="list__item">
+                <img src="/media/{{ sport.img }}" alt="{{ sport.title }}" />
+                <p class="text title">{{ sport.title }}</p>
+                <p class="text">{{ sport.description }}</p>
             </li>
-            <li class="list__item list__item--e-commerce">
-                <p class="text title">Для электронной коммерции</p>
-                <p class="text">Мы проведём тщательный анализ и&nbsp;разработаем для&nbsp;вас все необходимые документы и&nbsp;рекомендации.</p>
-            </li>
-            <li class="list__item list__item--gdpr">
-                <p class="text title">GDPR</p>
-                <p class="text">Мы проведём тщательный анализ и&nbsp;разработаем для&nbsp;вас все необходимые документы и&nbsp;рекомендации.</p>
-            </li>
-            <li class="list__item list__item--web">
-                <p class="text title">Для веб сайта</p>
-                <p class="text">Мы проведём тщательный анализ и&nbsp;разработаем для&nbsp;вас все необходимые документы и&nbsp;рекомендации.</p>
-            </li>
-            <li class="list__item list__item--mobile">
-                <p class="text title">Для моб. приложения</p>
-                <p class="text">Мы проведём тщательный анализ и&nbsp;разработаем для&nbsp;вас все необходимые документы и&nbsp;рекомендации.</p>
-            </li>
-            <li class="list__item list__item--users">
-                <p class="text title">Пользовательская политика</p>
-                <p class="text">Мы проведём тщательный анализ и&nbsp;разработаем для&nbsp;вас все необходимые документы и&nbsp;рекомендации.</p>
-            </li>
-        </ul>
-    </section>
-    <section class="section clients">
-        <h2 class="text section__title">Уже помогли</h2>
-        <ul class="list">
-            <li class="list__item"><img src="/static/images/dest/clients1.png" alt=""></li>
-            <li class="list__item"><img src="/static/images/dest/clients1.png" alt=""></li>
-            <li class="list__item"><img src="/static/images/dest/clients1.png" alt=""></li>
-            <li class="list__item"><img src="/static/images/dest/clients1.png" alt=""></li>
-            <li class="list__item"><img src="/static/images/dest/clients1.png" alt=""></li>
-            <li class="list__item"><img src="/static/images/dest/clients1.png" alt=""></li>
-            <li class="list__item"><img src="/static/images/dest/clients1.png" alt=""></li>
-            <li class="list__item"><img src="/static/images/dest/clients1.png" alt=""></li>
-            <li class="list__item"><img src="/static/images/dest/clients1.png" alt=""></li>
-            <li class="list__item"><img src="/static/images/dest/clients1.png" alt=""></li>
-            <li class="list__item"><img src="/static/images/dest/clients1.png" alt=""></li>
-            <li class="list__item"><img src="/static/images/dest/clients1.png" alt=""></li>
-            <li class="list__item"><img src="/static/images/dest/clients1.png" alt=""></li>
-            <li class="list__item"><img src="/static/images/dest/clients1.png" alt=""></li>
-            <li class="list__item"><img src="/static/images/dest/clients1.png" alt=""></li>
-            <li class="list__item"><img src="/static/images/dest/clients1.png" alt=""></li>
-            <li class="list__item"><img src="/static/images/dest/clients1.png" alt=""></li>
-            <li class="list__item"><img src="/static/images/dest/clients1.png" alt=""></li>
+            {% endfor %}
         </ul>
     </section>
     <section class="section reviews">
         <div class="reviews__desc">
-            <h2 class="text section__title">Что о нас говорят юристы</h2>
+            <h2 class="text section__title">Наши тренеры и преподаватели</h2>
             <div class="reviews__department">
                 <button class="button button--all button--active">Все</button>
-                <button class="button button--it button">IT</button>
+                <!-- <button class="button button--it button">IT</button>
                 <button class="button button--tourism button">Туризм</button>
                 <button class="button button--mfo button">МФО</button>
                 <button class="button button--medecine button">Медицина</button>
                 <button class="button button--internet button">Интернет&#8209;сервисы</button>
-                <button class="button button--international button">Международные&nbsp;компании</button>
+                <button class="button button--international button">Международные&nbsp;компании</button> -->
             </div>
         </div>
         <ul class="list">
+            {% for coach in coaches %}
             <li class="list__item blockquote">
+                <div class="list__img">
+                    <img src="/media/{{ coach.photo }}" class="coach_photo"/>
+                </div>
+                
+                <div class="list__text">
+                    <p class="text">{{ coach.description|apply_markup:"markdown"  }}</p>
+                    <div class="author">
+                        <span class="text author__name">{{ coach.name }}</span>
+                        <span class="text author__position">{{ coach.rank }}</span>
+                    </div>
+                    <!-- <img src="/static/images/dest/logo--philips.svg" alt="Philips" class="company-img"> -->
+                    <span class="text coach__section">{{ coach.section }}</span>
+                </div>
+
+            </li>
+            {% endfor %}
+            <!-- <li class="list__item blockquote">
                 <p class="text">Для российского подразделения Philips очень важно соответствовать всем требованиям местного законодательства, включая закон №152-ФЗ "О персональных данных". Крупный бизнес области производства, дистрибуции и ...</p>
                 <div class="author">
                     <span class="text author__name">Оксана Глущенко</span>
@@ -182,97 +162,60 @@
                     <span class="text author__position">Юрист, PHILIPS LLC</span>
                 </div>
                 <img src="/static/images/dest/logo--philips.svg" alt="Philips" class="company-img">
-            </li>
+            </li> -->
         </ul>
     </section>
     <section class="section benefits">
-        <h2 class="text section__title">Почему выбирают нас</h2>
+        <h2 class="text section__title"><span>Детский мини-сад</span></h2>
         <ul class="list">
-            <li class="text list__item">Команда экспертов, работающая&nbsp;с&nbsp;2011&nbsp;года</li>
-            <li class="text list__item">Более 100 успешных проверок&nbsp;Роскомнадзора</li>
-            <li class="text list__item">Индивидуальный подход к&nbsp;каждому&nbsp;документу</li>
-            <li class="text list__item">Лицензия ФСТЭК на&nbsp;проведение работ по&nbsp;технической защите&nbsp;информации</li>
+            <li class="text list__item">
+                <img src="/static/images/dest/sad/1.jpg" />
+                <p>Раннее развитие</p>
+            </li>
+            <li class="text list__item">
+                <img src="/static/images/dest/sad/2.jpg" />
+                <p>Подготовка к школе</p>
+            </li>
+            <li class="text list__item">
+                <img src="/static/images/dest/sad/3.jpg" />
+                <p>Обучение грамоте, чтению и логическому мышлению</p>
+            </li>
+            <li class="text list__item">
+                <img src="/static/images/dest/sad/4.jpg" />
+                <p>Комплексная программа основана на лучших мировых методиках</p>
+            </li>
         </ul>
     </section>
-    <section class="section test">
-        <div class="wrapper">
-            <h2 class="text section__title">Попадает&nbsp;ли деятельность моей организации под&nbsp;действие закона о&nbsp;персональных данных?</h2>
-            <p class="text">Мы подготовили небольшой тест, который поможет вам определиться</p>
-            <button class="button button--dark">Пройти тест</button>
-        </div>
-    </section>
+
     <section class="section section-news">
         <h2 class="text section__title">Новости</h2>
         <article class="article news">
-            <h3 class="text title">​<a href="#">ВТБ запустил онлайн&#8209;регистрацию недвижимых залогов для&nbsp;бизнеса</a></h3>
-            <p class="text content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet repellat fugiat eius quisquam labore aliquid adipisci veritatis voluptatibus. Cum soluta autem a accusamus consequuntur error et nostrum. Temporibus, alias aliquam facilis maiores quis nobis qui adipisci asperiores quod minima consequuntur quibusdam repellat quam repellendus facere explicabo harum dolore eius unde neque ab laborum dignissimos perferendis! Suscipit necessitatibus, veritatis aliquid, dicta dolorem explicabo inventore sequi aperiam dolores corporis iure porro minima numquam maxime cupiditate voluptates sapiente error voluptatem exercitationem nostrum eius magnam nulla earum reprehenderit. Nisi fugiat non libero soluta explicabo illo consequatur voluptatem amet praesentium. Eos, dicta. A, reprehenderit laudantium.</p>
-            <div class="props">
-                <time class="time">19:30</time> <span class="source">Google</span>
-            </div>
+            <img src="/static/images/dest/benefits/time.svg" />
+            <h3 class="text title">​<a href="#">Центр «Вселенная» позволяет подобрать удобное для вас время: утром, днем и вечером</a></h3>
         </article>
         <article class="article news">
-            <h3 class="text title">​<a href="#">ВТБ запустил онлайн&#8209;регистрацию недвижимых залогов для&nbsp;бизнеса</a></h3>
-            <p class="text content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet repellat fugiat eius quisquam labore aliquid adipisci veritatis voluptatibus. Cum soluta autem a accusamus consequuntur error et nostrum. Temporibus, alias aliquam facilis maiores quis nobis qui adipisci asperiores quod minima consequuntur quibusdam repellat quam repellendus facere explicabo harum dolore eius unde neque ab laborum dignissimos perferendis! Suscipit necessitatibus, veritatis aliquid, dicta dolorem explicabo inventore sequi aperiam dolores corporis iure porro minima numquam maxime cupiditate voluptates sapiente error voluptatem exercitationem nostrum eius magnam nulla earum reprehenderit. Nisi fugiat non libero soluta explicabo illo consequatur voluptatem amet praesentium. Eos, dicta. A, reprehenderit laudantium.</p>
-            <div class="props">
-                <time class="time">19:30</time> <span class="source">Google</span>
-            </div>
+            <img src="/static/images/dest/benefits/free.svg" />
+            <h3 class="text title">​<a href="#">По многим дисциплинам первое пробное занятие бесплатно</a></h3>
+
         </article>
         <article class="article news">
-            <h3 class="text title">​<a href="#">ВТБ запустил онлайн&#8209;регистрацию недвижимых залогов для&nbsp;бизнеса</a></h3>
-            <p class="text content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet repellat fugiat eius quisquam labore aliquid adipisci veritatis voluptatibus. Cum soluta autem a accusamus consequuntur error et nostrum. Temporibus, alias aliquam facilis maiores quis nobis qui adipisci asperiores quod minima consequuntur quibusdam repellat quam repellendus facere explicabo harum dolore eius unde neque ab laborum dignissimos perferendis! Suscipit necessitatibus, veritatis aliquid, dicta dolorem explicabo inventore sequi aperiam dolores corporis iure porro minima numquam maxime cupiditate voluptates sapiente error voluptatem exercitationem nostrum eius magnam nulla earum reprehenderit. Nisi fugiat non libero soluta explicabo illo consequatur voluptatem amet praesentium. Eos, dicta. A, reprehenderit laudantium.</p>
-            <div class="props">
-                <time class="time">19:30</time> <span class="source">Google</span>
-            </div>
+            <img src="/static/images/dest/benefits/books.svg" />
+            <h3 class="text title">​<a href="#">Все необходимые для занятий материалы и пособия мы закупаем сами и предоставляем детям при посещении</a></h3>
         </article>
-        <a href="#" class="text link link--watch-all">Смотреть все</a>
-    </section>
-    <section class="section section-events">
-        <h2 class="text section__title">Афиша мероприятий</h2>
-        <article class="article event">
-            <a href="#"><img src="/static/images/dest/event1.png" alt="​ВТБ запустил онлайн-регистрацию"></a>
-            <h3 class="text title">​​<a href="#">ВТБ запустил онлайн&#8209;регистрацию</a></h3>
-            <p class="text content">​ВТБ запустил онлайн&#8209;регистрацию недвижимых залогов для&nbsp;бизнеса</p>
-            <div class="props">
-                <time class="time">1 августа 19:30</time> <span class="source">Online</span>
-            </div>
-        </article>
-        <article class="article event">
-            <a href="#"><img src="/static/images/dest/event2.png" alt="​ВТБ запустил онлайн-регистрацию"></a>
-            <h3 class="text title">​​<a href="#">ВТБ запустил онлайн&#8209;регистрацию</a></h3>
-            <p class="text content">​ВТБ запустил онлайн&#8209;регистрацию недвижимых залогов для&nbsp;бизнеса</p>
-            <div class="props">
-                <time class="time">1 августа 19:30</time> <span class="source">Online</span>
-            </div>
-        </article>
-        <article class="article event">
-            <a href="#"><img src="/static/images/dest/event3.png" alt="​ВТБ запустил онлайн-регистрацию"></a>
-            <h3 class="text title">​​<a href="#">ВТБ запустил онлайн&#8209;регистрацию</a></h3>
-            <p class="text content">​ВТБ запустил онлайн&#8209;регистрацию недвижимых залогов для&nbsp;бизнеса</p>
-            <div class="props">
-                <time class="time">1 августа 19:30</time> <span class="source">Online</span>
-            </div>
-        </article>
-        <a href="#" class="text link link--watch-all">Смотреть все</a>
+
     </section>
 </main>
 
 <footer class="footer">
     <div class="footer__top">
         <div class="logo">
-            <svg class="logo__img" width="94" height="28" viewBox="0 0 94 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M45.7625 0.502441V27.5046H40.5229V8.51353C39.144 9.55667 37.4397 10.0765 35.7134 9.98035V5.04394C38.4848 5.04394 40.5229 3.154 40.5229 0.537701L45.7625 0.502441Z" fill="#0B092D"/>
-                <path d="M70.7574 18.337C70.729 20.5585 69.9456 22.7043 68.5361 24.4216C67.1266 26.1389 65.1748 27.3256 63.0015 27.7867C60.8281 28.2478 58.5626 27.9558 56.5772 26.9587C54.5918 25.9617 53.0047 24.3188 52.0767 22.3002L56.5829 19.9942C56.9579 21.0201 57.6827 21.8808 58.6299 22.4248C59.577 22.9689 60.6857 23.1614 61.7608 22.9684C62.8358 22.7755 63.8084 22.2095 64.5072 21.37C65.2061 20.5306 65.5864 19.4715 65.5813 18.3793C65.5566 17.3913 65.22 16.4365 64.6196 15.6515C64.0193 14.8665 63.1859 14.2916 62.2389 14.009C61.2919 13.7265 60.2797 13.7508 59.3474 14.0785C58.415 14.4063 57.6103 15.0206 57.0483 15.8335L53.0428 13.1396C54.2346 10.6362 55.0456 6.32035 55.0456 2.56163V0.502441H67.4077V5.50937H59.5518C59.5087 6.87133 59.2713 8.22015 58.8466 9.51491C59.6743 9.26724 60.5357 9.15064 61.3994 9.16936C66.7942 9.16936 70.7574 13.0198 70.7574 18.337Z" fill="#0B092D"/>
-                <path d="M81.2718 22.5686H92.9076V27.505H75.2776V25.0438C75.2776 19.4022 79.0927 17.336 83.2534 14.8678C86.723 12.8298 88.4507 11.5181 88.4507 9.01462C88.4654 8.47355 88.3694 7.93518 88.1684 7.4326C87.9674 6.93002 87.6658 6.47384 87.2821 6.09209C86.8983 5.71035 86.4406 5.41109 85.937 5.21272C85.4334 5.01435 84.8945 4.92105 84.3535 4.93856C83.8086 4.93296 83.2679 5.03558 82.7629 5.24048C82.2578 5.44538 81.7985 5.74849 81.4115 6.13222C81.0245 6.51595 80.7175 6.97269 80.5083 7.47595C80.2991 7.97921 80.1919 8.51898 80.1928 9.06399V9.64225L75.1507 10.291C75.0703 9.8727 75.0302 9.44765 75.0308 9.02167C75.05 7.81348 75.3079 6.62102 75.7896 5.51285C76.2713 4.40468 76.9674 3.40268 77.8377 2.56446C78.708 1.72624 79.7355 1.06834 80.861 0.628608C81.9865 0.188873 83.1878 -0.024027 84.3958 0.00215194C89.4803 0.00215194 93.5634 3.77498 93.5634 8.93705C93.5634 14.5222 88.7117 17.1808 85.6299 18.958C83.1617 20.3825 81.6949 21.3838 81.2718 22.5686Z" fill="#0B092D"/>
-                <path d="M12.6372 10.8266L10.98 10.2483C7.63028 9.07769 6.00126 8.30902 5.62751 5.31191H17.9826V0.502441H0V27.5046H10.0139C16.2549 27.5046 19.6116 24.1902 19.6116 19.2185C19.6116 14.7546 17.1787 12.4062 12.6372 10.8266ZM9.87282 22.3848H5.54993V13.4006C6.68939 14.2073 7.96866 14.7955 9.32276 15.1354L10.4793 15.4809C13.0956 16.2214 14.104 17.4907 14.104 19.2608C14.104 21.2636 12.6936 22.3848 9.87282 22.3848Z" fill="#0B092D"/>
-                <path class="point" d="M23.979 23.8859C23.979 23.1885 24.1858 22.5068 24.5732 21.9269C24.9607 21.3471 25.5114 20.8951 26.1557 20.6283C26.8 20.3614 27.5089 20.2916 28.1929 20.4276C28.8769 20.5637 29.5052 20.8995 29.9983 21.3926C30.4914 21.8857 30.8272 22.514 30.9633 23.198C31.0993 23.882 31.0295 24.5909 30.7626 25.2352C30.4957 25.8795 30.0438 26.4302 29.464 26.8176C28.8841 27.2051 28.2024 27.4119 27.505 27.4119C26.5699 27.4119 25.673 27.0404 25.0117 26.3791C24.3505 25.7179 23.979 24.821 23.979 23.8859Z" fill="#F05086"/>
-            </svg>
+            <img src="/static/images/dest/logo.svg" class="footer_logo" />
             <div class="copyright">
-                <p class="text">© «Б-152». Все права защищены. 2011&#8209;2020</p>
-                <p class="text">При поддержке Фонда&nbsp;содействия&nbsp;инновациям</p>
+                <p class="text">© «Вселенная». Все права защищены. 2020</p>
             </div>
         </div>
         <ul class="menu">
-            <li class="menu__item">
+            <!-- <li class="menu__item">
                 <a href="#" class="link">Услуги</a>
                 <ul class="menu">
                     <li class="menu__item">
@@ -308,15 +251,15 @@
                         <a href="#" class="link">База знаний</a>
                     </li>
                 </ul>
-            </li>
+            </li> -->
             <li class="menu__item">
                 <a href="#" class="link">Контакты</a>
                 <ul class="menu">
                     <li class="menu__item">
-                        <a href="mailto:info@B152.com" class="link">info@B152.com</a>
+                        <a href="mailto:info@universe-center.ru" class="link">info@universe-center.ru</a>
                     </li>
                     <li class="menu__item">
-                        <a href="tel:+74993720652" class="link">Москва: +7 (499) 372-06-52</a>
+                        <a href="tel:+74993720652" class="link">Москва: +7 (499) 999-99-99</a>
                     </li>
                 </ul>
                 <div class="menu social-links">
@@ -338,4 +281,3 @@
  </script>
 
 {% endblock %}
-
