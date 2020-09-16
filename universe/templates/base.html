@@ -12,8 +12,112 @@
 </head>
 
 <body>
+	<header class="header">
+		<div class="header__top">
+			<button class="button button--switch-language"> <span></span></button>
+			<a href="mailto:info@b-152.ru" class="link link--email">info@universe-center.ru</a>
+			<a href="tel:+74953453434" class="link link--phone">+ 7 (495) 999 99 99</a>
+			<a href="#callback" class="modal button button--light button--callback">Заказать звонок</a>
+			<a href="#login" class="modal button button--dark button--login"></a>
+		</div>
+		<nav class="header__bottom">
+			<div class="toggle">
+				<button class="button" type="button">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+			</div>
+			<div class="logo">
+				<img src="/static/images/dest/logo.svg" />
+			</div>
+			<ul class="menu menu--primary">
+				<li class="menu__item menu__item--dropdown">
+					<a href="/" class="link">Главная</a>
+					<a href="/gallery" class="link">Галерея</a>
+				</li>
+			</ul>
+			<form action="" class="search search--main">
+				<label for="#inputSearch" class="label label--search"><span>Поиск по сайту</span><input id="inputSearch" type="text" class="input input--search" placeholder="Поиск"></label>
+				<button type="submit" class="button button--submit">Найти</button>
+			</form>
+		</nav>
+	</header>
 
-    {% block content %}{% endblock %}
+	<!-- content -->
+	<div class="main">
+		{% block content %}{% endblock %}
+	</div>
+	
+	
+	<footer class="footer">
+		<div class="footer__top">
+			<div class="logo">
+				<img src="/static/images/dest/logo.svg" class="footer_logo" />
+				<div class="copyright">
+					<p class="text">© «Вселенная». Все права защищены. 2020</p>
+				</div>
+			</div>
+			<ul class="menu">
+				<!-- <li class="menu__item">
+					<a href="#" class="link">Услуги</a>
+					<ul class="menu">
+						<li class="menu__item">
+							<a href="#" class="link">Сервис для организаций</a>
+						</li>
+						<li class="menu__item">
+							<a href="#" class="link">Аудит и документация</a>
+						</li>
+						<li class="menu__item">
+							<a href="#" class="link">GDPR</a>
+						</li>
+						<li class="menu__item">
+							<a href="#" class="link">Остальные</a>
+						</li>
+					</ul>
+				</li>
+				<li class="menu__item">
+					<a href="#" class="link">Информация</a>
+					<ul class="menu">
+						<li class="menu__item">
+							<a href="#" class="link">Разъясняющие документы</a>
+						</li>
+						<li class="menu__item">
+							<a href="#" class="link">FAQ</a>
+						</li>
+						<li class="menu__item">
+							<a href="#" class="link">Законодательная база</a>
+						</li>
+						<li class="menu__item">
+							<a href="#" class="link">Блог</a>
+						</li>
+						<li class="menu__item">
+							<a href="#" class="link">База знаний</a>
+						</li>
+					</ul>
+				</li> -->
+				<li class="menu__item">
+					<a href="#" class="link">Контакты</a>
+					<ul class="menu">
+						<li class="menu__item">
+							<a href="mailto:info@universe-center.ru" class="link">info@universe-center.ru</a>
+						</li>
+						<li class="menu__item">
+							<a href="tel:+74993720652" class="link">Москва: +7 (499) 999-99-99</a>
+						</li>
+					</ul>
+					<div class="menu social-links">
+						<a href="#" class="link link--fb">Facebook</a>
+						<a href="#" class="link link--tw">Twitter</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="footer__bottom">
+			<p class="text">Мы используем cookies для&nbsp;сбора обезличенных персональных данных. Они помогают настраивать рекламу и&nbsp;анализировать&nbsp;трафик.</p>
+			<p class="text">Оставаясь на&nbsp;сайте, вы соглашаетесь на&nbsp;сбор таких&nbsp;данных.</p>
+		</div>
+	</footer>
 
     <script type="text/javascript" src="/static/js/app.js"></script>
 

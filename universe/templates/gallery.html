@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% load markup_tags %}
+
+{% block content %}
+
+<section class="section gallery">
+    {% for img in images %}
+    <div class="img">
+        <img src="/static/gallery/{{ img }}" />
+        <!-- test -->
+    </div>
+    {% endfor %}
+</section>
+
+{% endblock %}

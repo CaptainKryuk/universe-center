@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from universe.settings import MEDIA_ROOT, BASE_DIR
+from universe.settings import MEDIA_ROOT, BASE_DIR, STATIC_ROOT
 import imghdr
 import os
 from base.models import SportSection, Coach
@@ -27,3 +27,8 @@ def index(request):
                                                   'sections': sections,
                                                   # coaches
                                                   'coaches': coaches })
+
+def gallery(request):
+    gallery_url = os.path.join(BASE_DIR, 'universe', 'static', 'gallery')
+    images = [img for img in os.listdir(gallery_url)]
+    return render(request, 'gallery.html', context={'images': images})
