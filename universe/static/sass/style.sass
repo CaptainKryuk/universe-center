@@ -435,6 +435,20 @@
             color: $color1
             font-weight: 700
             text-align: center
+
+            span
+                display: inline-block
+                position: relative
+                &::after
+                    display: block
+                    position: absolute
+                    content: ''
+                    left: 0
+                    bottom: 6px
+                    width: 100%
+                    height: 12px
+                    background-color: #bdeafc
+                    z-index: -1   
         &:last-child
             margin-bottom: 96px
 
@@ -534,20 +548,7 @@
     .we-do
         .section__title
             padding-left: 2px
-            padding-right: 2px
-            span
-                display: inline-block
-                position: relative
-                &::after
-                    display: block
-                    position: absolute
-                    content: ''
-                    left: 0
-                    bottom: 6px
-                    width: 100%
-                    height: 12px
-                    background-color: #bdeafc
-                    z-index: -1          
+            padding-right: 2px       
         > p.text
             margin-bottom: 40px
             text-align: center
@@ -567,12 +568,18 @@
             border: 1px solid #F4F2E8
             border-radius: 5px
             box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.03)
+
+            &__title_block
+                display: flex
+                align-items: flex-end
+                margin-bottom: 10px
             .title
                 position: relative
-                display: inline-block
                 font-size: 18px
                 font-weight: 700
-                top: 5px
+                text-overflow: ellipsis
+                white-space: nowrap
+                overflow: hidden
             
             img
                 position: relative
@@ -679,6 +686,17 @@
                 border-radius: 12px
                 box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05)
 
+                
+                p
+                    display: -webkit-box
+                    -webkit-box-orient: vertical
+                    -webkit-line-clamp: 6
+                    width: 100%
+                    // margin-bottom: 24px
+                    text-overflow: ellipsis
+                    overflow: hidden
+                    color: red
+
             &__img
                 display: flex
                 align-items: center
@@ -694,14 +712,6 @@
                     border: 1px solid $color4
                     filter: drop-shadow(-4px 4px 12px rgba(0, 0, 0, 0.25))
 
-                > .text
-                    display: -webkit-box
-                    -webkit-box-orient: vertical
-                    -webkit-line-clamp: 7
-                    width: 100%
-                    margin-bottom: 24px
-                    text-overflow: ellipsis
-                    overflow: hidden
 
             .author
                 width: 100%
@@ -1306,6 +1316,7 @@
             .section__title.text
                 margin-bottom: 15px
                 font-size: 48px
+                font-weight: bold
             .button
                 margin-left: 0
 

@@ -43,8 +43,10 @@
     <ul class="list">
         {% for sport in sections %}
         <li class="list__item">
-            <img src="/media/{{ sport.img }}" alt="{{ sport.title }}" />
-            <p class="text title">{{ sport.title }}</p>
+            <div class="list__item__title_block">
+                <img src="/media/{{ sport.img }}" alt="{{ sport.title }}" />
+                <p class="text title">{{ sport.title }}</p>
+            </div>
             <p class="text">{{ sport.description }}</p>
         </li>
         {% endfor %}
@@ -71,7 +73,7 @@
             </div>
             
             <div class="list__text">
-                <p class="text">{{ coach.description|apply_markup:"markdown"  }}</p>
+                <p class="desc_text">{{ coach.description|apply_markup:"markdown" }}</p>
                 <div class="author">
                     <span class="text author__name">{{ coach.name }}</span>
                     <span class="text author__position">{{ coach.rank }}</span>
@@ -140,7 +142,7 @@
     </ul>
 </section>
 <section class="section benefits">
-    <h2 class="text section__title"><span>Детский мини-сад</span></h2>
+    <h2 class="text section__title">Детский <span>мини-сад</span></h2>
     <ul class="list">
         <li class="text list__item">
             <img src="/static/images/dest/sad/1.jpg" />
@@ -161,7 +163,7 @@
     </ul>
 </section>
 <section class="section section-news">
-    <h2 class="text section__title">Новости</h2>
+    <h2 class="text section__title">Наши <span>преимущества</span></h2>
     <article class="article news">
         <img src="/static/images/dest/benefits/time.svg" />
         <h3 class="text title">​<a href="#">Центр «Вселенная» позволяет подобрать удобное для вас время: утром, днем и вечером</a></h3>
