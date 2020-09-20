@@ -40,7 +40,8 @@ class Coach(Model):
         ('grappling', 'Грепплинг'),
         ('combat', 'Рукопашный бой'),
         ('gymnastic', 'Художественная гимнастика'),
-        ('brain', 'Секция МОЗГ')
+        ('brain', 'Секция МОЗГ'),
+        ('karate', "Карате")
     )
 
     name = CharField("ФИО тренера", max_length=255)
