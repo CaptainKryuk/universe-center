@@ -32,12 +32,12 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	};
 
-	// headerSearchLabel.addEventListener(`click`, (e) => {
-	// 	e.preventDefault();
-	// 	headerSearch.classList.toggle(`search--active`);
-	// });
+	headerSearchLabel.addEventListener(`click`, (e) => {
+		e.preventDefault();
+		headerSearch.classList.toggle(`search--active`);
+	});
 
-	// buttonMenu.addEventListener(`click`, () => toggleMenu());
+	buttonMenu.addEventListener(`click`, () => toggleMenu());
 
 	// menuDropdown.forEach((item) => {
 	// 	item.addEventListener(`click`, (e) => {
