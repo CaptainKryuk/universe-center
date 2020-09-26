@@ -1,4 +1,12 @@
-from django.db.models import Model, CharField, ImageField, FileField, TextField
+from django.db.models import Model, \
+                             CharField, \
+                             ImageField, \
+                             FileField, \
+                             TextField, \
+                             ForeignKey, \
+                             SlugField, \
+                             CASCADE, \
+                             IntegerField
 from django.shortcuts import render
 
 
@@ -21,28 +29,28 @@ class SportSection(Model):
 
     description = CharField("Описание секции", max_length=255)
 
-    # icon = ImageField(upload_to="sections", verbose_name="Иконка")
-
     img = FileField(upload_to="sections", verbose_name="Картинка секции")
+
+    slug = SlugField("Slug поле", max_length=50, default=title)
+
+    long_description = TextField("Описание секции", blank=True)
+
+    invoice = IntegerField(verbose_name="Сумма месячной оплаты", default=3000)
+
+    section_tag = CharField("Таг отображения", max_length=50)
 
     class Meta:
         verbose_name = "Секция"
-        verbose_name_plural = "Секции из раздела 'Мы помогаем вашим детям...'"
+        verbose_name_plural = "Спортивные секции"
 
     def __str__(self):
         return self.title
 
+    def get_coaches(self):
+        return self.coach_set.all()
+
 
 class Coach(Model):
-
-    SPORT_SECTION = (
-        ('taekwondo', 'Тхэквондо'),
-        ('grappling', 'Грепплинг'),
-        ('combat', 'Рукопашный бой'),
-        ('gymnastic', 'Художественная гимнастика'),
-        ('brain', 'Секция МОЗГ'),
-        ('karate', "Карате")
-    )
 
     name = CharField("ФИО тренера", max_length=255)
 
@@ -50,7 +58,7 @@ class Coach(Model):
 
     description = TextField("Описание")
 
-    section = CharField("Спортивная секция", choices=SPORT_SECTION, max_length=50)
+    section = ForeignKey(SportSection, verbose_name="Спортивная секция", on_delete=CASCADE)
 
     photo = ImageField(upload_to="coach_photos", verbose_name="Фотография тренера")
 
@@ -59,4 +67,4 @@ class Coach(Model):
         verbose_name_plural = "Тренера"
 
     def __str__(self):
-        return self.name + ' -- ' + self.section
+        return self.name + ' -- ' + self.section.title

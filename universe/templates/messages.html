@@ -1,0 +1,22 @@
+{% if messages %}
+<div class="toasts_container">
+  <!-- all existed notification -->
+
+    {% for message in messages %}
+    <div class="my_toast toast_{{ message.tags }}">
+      <div class="icon">
+        <img src="/static/images/dest/{{ message.tags }}_check.svg" />
+      </div>    
+      <div class="text">
+        {% if message.tags == 'success' %}
+        <p class="toast_title">Форма успешно заполнена</p> 
+        {% else %}
+        <p class="toast_title">Ошибка при заполнении формы</p>
+        {% endif %}
+        <p class="toast_desc">{{ message }}</p>
+      </div>
+    </div>
+    {% endfor %}
+
+</div>
+{% endif %}

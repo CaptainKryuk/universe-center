@@ -859,6 +859,7 @@
     .section-events
         text-align: center
 
+    // photos in gallery
     .gallery
         display: flex
         justify-content: space-between
@@ -877,7 +878,109 @@
                 border-radius: 5px
                 height: 100%
                 object-fit: cover
+    
+    // sport sections in /sport/<section_name>
+    .sport
+        &__menu
+            display: none
+        
+        &__content
+            &__text
+                width: 100%
+
+            &__form
+                width: 100%
+                border: 1px solid $color4
+                border-radius: 10px
+                padding: 30px 40px
+                margin-top: 50px
+
+        &__coaches
+            margin-top: 70px
+            text-align: center
+
+            &__title
+                display: inline-block
+                position: relative
+                text-align: center
+                font-size: 32px
+                font-weight: bold
+                &::after
+                    display: block
+                    position: absolute
+                    content: ''
+                    left: 0
+                    bottom: 6px
+                    width: 100%
+                    height: 12px
+                    background-color: #bdeafc
+                    z-index: -1 
+            
+            ul,
+            li
+                list-style: none
+            
+            .coaches
+                display: block
+                margin-top: 30px
+
+                li
+                    margin-bottom: 50px
+                    img
+                        border-radius: 50%
+                        width: 150px
+                        height: 150px
+                        object-fit: cover
+                        border: 1px solid $color4
+                    
+                    .name
+                        margin-top: 15px
+                        margin-bottom: 0
+                        font-weight: bold
+                    
+                    .rank
+                        color: $color3
+
+    .requisites
+        margin-top: 50px
+
+        h1
+            font-size: 36px
+            margin-bottom: 50px
+
+        ul,          
+        li
+            padding: 0
+            list-style: none
+        
+        &__content
+
+
+            ul
+                width: 100%
+            li
+                display: flex
+                justify-content: space-between
+                flex-wrap: wrap
+                border-bottom: 1px solid #ebebeb
+                padding: 15px 0
+                font-size: 18px
+
+                .name
+                    width: 40%
                 
+                .value
+                    width: 57%
+                    font-weight: bold
+
+            .document
+                width: 100%
+                margin-top: 30px
+
+                a
+                    display: block
+                    margin-top: 20px
+
 
 .article.event
     margin-bottom: 48px
@@ -1151,12 +1254,22 @@
                         display: none
                     .wrapper
                         position: absolute
+                        display: -webkit-box
+                        display: -ms-flexbox
                         display: flex
+                        -webkit-box-align: start
+                        -ms-flex-align: start
                         align-items: flex-start
+                        -webkit-box-pack: start
+                        -ms-flex-pack: start
                         justify-content: flex-start
+                        -ms-flex-wrap: nowrap
                         flex-wrap: nowrap
                         width: 100%
+                        height: -webkit-fit-content
+                        height: -moz-fit-content
                         height: fit-content
+                        min-height: 450px
                         top: calc(100% - 1px)
                         right: 0
                         bottom: 0
@@ -1164,9 +1277,9 @@
                         margin: 0 auto
                         padding-top: 37px
                         padding-bottom: 6px
-                        padding-left: $padding
-                        padding-right: $padding
-                        background-color: $colorBg
+                        padding-left: calc((100% - 1084px)/ 2)
+                        padding-right: calc((100% - 1084px)/ 2)
+                        background-color: #fdfdfc
                         &::before
                             display: block
                             content: ''
@@ -1497,7 +1610,73 @@
             .img:nth-child(3n)
                 grid-column: span 2
                 grid-row: span 2
+
+        .sport
+            padding-top: 50px
+            padding-bottom: 50px
+
+            &__menu
+                display: flex
+                flex-wrap: wrap
+                margin-bottom: 30px
+
+                &__link
+                    margin-right: 30px
+                    text-decoration: none
+
+                .selected
+                    color: $color1
+                    border-bottom: 1px solid $color1
+                
+                .default
+                    color: $color2
+
+            &__content
+                display: flex
+                justify-content: space-between
+
+                &__text
+                    width: 56%
+
+                    h1
+                        font-size: 40px
+                    h2
+                        margin-top: 30px
+                        font-size: 32px
+                    p
+                        margin-top: 15px
+                        line-height: 1.6  
+
+                &__form
+                    position: sticky
+                    width: 40%
+                    max-height: 500px
+                    margin-top: 0
+                    top: 150px
+
+                    .form
+                        &__button
+                            margin-top: 10px
+        
+            &__coaches
+                .coaches
+                    display: flex
+                    justify-content: space-around
+        
+        .requisites
+
+            &__content
+                display: flex
+                justify-content: space-between
+
+                ul
+                    width: 65%
+                
+                .document
+                    margin-top: 0
+                    width: 30%
     
+
 
     .footer
         margin: 0 auto
@@ -1539,3 +1718,211 @@
             padding-top: 21px
             padding-bottom: 40px
             border-top: 1px solid #E3E3E4
+
+
+.form
+    &__title
+        font-size: 24px
+        font-weight: bold
+
+    ul, 
+    li
+        list-style: none
+
+    li
+        margin-bottom: 15px
+        display: block
+
+    label
+        font-size: 14px
+        color: $color2
+
+    input[type='text']
+        border-radius: 3px
+        border: 1px solid $color4
+        padding: 10px 15px
+        font-size: 14px
+        width: 100%
+
+    &__button
+        width: 100%
+        border-radius: 20px
+        background: $accent
+        height: 40px
+        text-align: center
+        color: white
+        border: none
+        margin: 30px 0
+                    
+        &__agreement
+            width: 100%
+            font-size: 14px
+            color: $color3
+
+
+
+/* свойства модального окна по умолчанию */
+.modal
+    position: fixed
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    background: rgba(0,0,0,0.5)
+    z-index: 1050
+    opacity: 0
+    -webkit-transition: opacity 200ms ease-in 
+    -moz-transition: opacity 200ms ease-in
+    transition: opacity 200ms ease-in
+    pointer-events: none
+    margin: 0
+    padding: 0
+    display: flex
+    align-items: center
+    justify-content: end
+
+    .form
+        padding: 25px 50px
+
+        .title
+            text-align: center
+
+
+/* при отображении модального окно */
+.modal:target 
+    opacity: 1
+    pointer-events: auto
+    overflow-y: auto
+
+/* ширина модального окна и его отступы от экрана */
+.modal__dialog
+    position: relative
+    max-height: 400px
+    margin: 10px
+
+@media (min-width: 576px)
+    .modal__dialog
+        max-width: 500px
+        margin: 30px auto
+
+/* свойства для блока, содержащего контент модального окна */ 
+.modal__content
+    position: relative
+    display: -webkit-box
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-box-orient: vertical
+    -webkit-box-direction: normal
+    -webkit-flex-direction: column
+    -ms-flex-direction: column
+    flex-direction: column
+    background-color: #fff
+    -webkit-background-clip: padding-box
+    background-clip: padding-box
+    border: 1px solid rgba(0,0,0,.2)
+    border-radius: 10px
+    outline: 0
+    padding: 30px 25px
+
+@media (min-width: 768px)
+    .modal__content
+        -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5)
+        box-shadow: 0 5px 15px rgba(0,0,0,.5)
+
+/* свойства для кнопки "Закрыть" */
+.close
+    position: absolute
+    top: -25px
+    right: -25px
+    font-family: sans-serif
+    font-size: 34px
+    font-weight: 700
+    line-height: 1
+    color: #ffffff
+    text-shadow: 0 1px 0 #fff
+    opacity: .5
+    text-decoration: none
+
+/* свойсва для кнопки "Закрыть" при нахождении её в фокусе или наведении */
+.close:focus, .close:hover
+    color: #ffffff
+    text-decoration: none
+    cursor: pointer
+    opacity: .75
+
+ul
+    list-style: none
+
+li
+    list-style: none
+
+
+@keyframes appear
+    0%
+        opacity: 0
+        transform: translateX(400px)
+    100%
+        opacity: 1
+        transform: translateX(0)
+        
+@keyframes hide
+    100%
+        transform: translateX(400px)
+        opacity: 0
+
+// toast notifications
+.toasts_container
+    width: 320px 
+    max-height: 360px
+    position: fixed
+    top: 70px 
+    right: 50px
+    z-index: 1000
+
+    .my_toast
+        width: 100%
+        height: 90px
+        display: grid
+        grid-template-columns: 20% 80%
+        align-items: center
+        margin-bottom: 15px
+        border-radius: 10px
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+        border: 1px solid $color4
+        background: $colorBg
+        animation: appear 0.5s linear
+
+        p
+            margin-bottom: 0
+
+        .text
+            padding: 15px 0
+
+        .toast_title
+            font-weight: bold
+            color: $color1
+
+
+        .toast_desc
+            font-size: 14px
+            color: $color2
+            margin-top: 5px
+            white-space: nowrap
+            overflow: hidden
+            text-overflow: ellipsis
+
+
+        .icon
+            display: flex
+            justify-content: center
+            align-items: center
+
+        img
+            width: 30px 
+            height: 30px
+        
+
+    .hide_toast
+        animation: hide 0.3s linear
+        animation-fill-mode: forwards

@@ -3,10 +3,10 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Вселенная</title>
+	<title>Вселенная | {% if title %} {{ title }} {% else %} Главная {% endif %}</title>
 	<meta name="description" content="universe">
 	<meta name="viewport" content="width=device-width">
-	<link rel="icon" href="images/favicon.png">
+	<link rel="icon" href="/static/images/favicon.png">
 
 	<link rel="stylesheet" href="/static/stylesheets/style.css">
 </head>
@@ -16,9 +16,9 @@
 		<div class="header__top">
 			<button class="button button--switch-language"> <span></span></button>
 			<a href="mailto:info@b-152.ru" class="link link--email">info@universe-center.ru</a>
-			<a href="tel:+74953453434" class="link link--phone">+ 7 (495) 999 99 99</a>
-			<a href="#callback" class="modal button button--light button--callback">Заказать звонок</a>
-			<a href="#login" class="modal button button--dark button--login"></a>
+			<a href="tel:+79309537770" class="link link--phone">+7 (930) 953-77-70</a>
+			<a href="#contactForm" class="button button--light button--callback">Заказать звонок</a>
+			<a href="#login" class="button button--dark button--login"></a>
 		</div>
 		<nav class="header__bottom">
 			<div class="toggle">
@@ -34,8 +34,47 @@
 			<ul class="menu menu--primary">
 				<li class="menu__item menu__item--dropdown">
 					<a href="/" class="link">Главная</a>
+				</li>
+				<li class="menu__item menu__item--dropdown">
+					<a href="#ourSections" class="link">Спортивные секции</a>
+
+					<div class="wrapper">
+						<div class="menu-wrapper">
+			
+							<ul class="menu menu--secondary" aria-label="Секции">
+								{% for sport in sections %}
+								<li class="menu__item">
+									<a href="/sport/{{ sport.slug }}" class="link">{{ sport.title }}</a>
+								</li>
+								{% endfor %}
+							</ul>
+		
+						</div>
+					</div>
+				</li>
+
+				<li class="menu__item menu__item--dropdown">
 					<a href="/gallery" class="link">Галерея</a>
 				</li>
+
+				<li class="menu__item menu__item--dropdown">
+					<a href="/requisites" class="link">О нас</a>
+
+					<div class="wrapper">
+						<div class="menu-wrapper">
+			
+							<ul class="menu menu--secondary" aria-label="Основное">
+								<li class="menu__item">
+									<a href="/requisites" class="link">Контакты и реквизиты</a>
+								</li>
+							</ul>
+		
+						</div>
+					</div>
+				</li>
+
+
+
 			</ul>
 			<form action="" class="search search--main">
 				<label for="#inputSearch" class="label label--search"><span>Поиск по сайту</span><input id="inputSearch" type="text" class="input input--search" placeholder="Поиск"></label>
@@ -47,6 +86,34 @@
 	<!-- content -->
 	<div class="main">
 		{% block content %}{% endblock %}
+	</div>
+
+	{% include "messages.html" %}
+
+	<!-- modal fields -->
+	<div id="contactForm" class="modal">
+		<div class="modal__dialog">
+			<div class="modal__content">
+				<a href="#close" title="Close" class="close">×</a>
+
+				<div class="form">
+					<p class="form__title">Закажите звонок</p>
+					{% if contact_form.errors %}
+						<p style="color: red">Исправьте следующие ошибки: {{ form.errors|pluralize }}</p>
+					{% endif %}
+		
+					<form action="/contact_form" method="post">
+						{% csrf_token %}
+						{{ contact_form.as_ul }}
+
+						<input type="hidden" name="current_page_url" value="{{ request.path }}" />
+						<button type="submit" class="form__button">Заказать</button>
+		
+						<small class="form__agreement">Нажимая на кнопку "Заказать, вы даете согласие на обработку своих персональных данных</small>
+					</form>
+				</div>
+			</div>
+		</div>
 	</div>
 	
 	
@@ -103,7 +170,7 @@
 							<a href="mailto:info@universe-center.ru" class="link">info@universe-center.ru</a>
 						</li>
 						<li class="menu__item">
-							<a href="tel:+74993720652" class="link">Москва: +7 (499) 999-99-99</a>
+							<a href="tel:+79309537770" class="link">Москва: +7 (930) 953-77-70</a>
 						</li>
 					</ul>
 					<div class="menu social-links">

@@ -12,22 +12,27 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 import os
 import logging
+import environ
+
+env = environ.Env()
 
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+env.read_env(str(os.path.join(BASE_DIR, '.env')))
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '59r8#2^q(@wgsiz2vlc)i*+8ni!1ophxt%@l&tg19nf^7s5wlw'
+SECRET_KEY = env('DJANGO_SECRET_KEY') or None
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DJANGO_DEBUG') or None
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'universe-center.ru']
 
 
 # Application definition
@@ -79,11 +84,10 @@ WSGI_APPLICATION = 'universe.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': env.db('DATABASE_URL') or None
 }
+
+DATABASES['default']['ATOMIC_REQUESTS'] = True
 
 
 # Password validation
@@ -162,3 +166,6 @@ LOGGING = {
         },
     }
 }
+
+POSTMARK_API_KEY = env('POSTMARK_API_KEY') or None
+POSTMARK_SENDER  = 'info@b-152.ru'

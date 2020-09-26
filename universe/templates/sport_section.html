@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% load markup_tags %}
+
+{% block content %}
+
+<section class="section sport">
+    
+    <nav class="sport__menu">
+        {% for menu in s_menu %}
+        <a class="sport__menu__link {{ menu.class }}" href="/sport/{{ menu.slug }}">{{ menu.name }}</a>
+        {% endfor %}
+    </nav>
+
+    <div class="sport__content">
+
+        <div class="sport__content__text">
+            {{ sport.long_description|apply_markup:"markdown" }}
+        </div>
+
+        <div class="sport__content__form">
+            <div class="form">
+                <p class="form__title">Есть вопрос? Задайте его нам</p>
+                {% if form.errors %}
+                    <p style="color: red">Исправьте следующие ошибки: {{ form.errors|pluralize }}</p>
+                {% endif %}
+    
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form.as_ul }}
+                    <button type="submit" class="form__button">Спросить</button>
+    
+                    <small class="form__agreement">Нажимая на кнопку "Спросить”, вы даете согласие на обработку своих персональных данных</small>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="sport__coaches">
+        <h1 class="sport__coaches__title">Преподаватели</h1>
+
+        <ul class="coaches">
+        {% for coach in sport.get_coaches %}
+        <li>
+            <img src="/media/{{ coach.photo }}" />
+            <p class="name">{{ coach.name }}</p>
+            <small class="rank">{{ coach.rank }}</small>
+        </li>
+        {% endfor %}
+        </ul>
+
+    </div>
+</section>
+
+{% endblock %}

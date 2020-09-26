@@ -46,6 +46,19 @@ document.addEventListener("DOMContentLoaded", function() {
 	// 	});
 	// });
 
+	// notification
+	console.log('its work', document.querySelector('my_toast'))
+	document.querySelector('.my_toast').addEventListener('click', () => {
+		console.log('toast click')
+		document.querySelector('.my_toast').className = 'my_toast hide_toast'
+	})
+
+	setTimeout(() => {
+		console.log('toast timeout')
+		toast = document.querySelector('.my_toast')
+		toast.className = 'my_toast hide_toast'
+	}, 3000)
+
 
 	// slideshow
 	if (images) {
@@ -63,6 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		changeImageReverse(r_slideshow, a_images.length - 1, a_images)
 	}
 
+	
 
 
 });
