@@ -95,3 +95,9 @@ def requisites_view(request):
     return render(request, 'requisites.html', context={'contact_form': ContactForm(),
                                                        'sections': get_sections(),
                                                        'title': "Реквизиты"})
+
+
+def pricelist_view(request):
+    return render(request, 'pricelist.html', context={'contact_form': ContactForm(),
+                                                       'sections': get_sections(),
+                                                       'title': "Секции"})

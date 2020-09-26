@@ -11,3 +11,4 @@ django-markdown
 markdown 
 bleach
 postmarker
+django_markup

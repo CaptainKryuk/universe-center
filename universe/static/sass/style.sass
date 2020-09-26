@@ -941,7 +941,7 @@
                     .rank
                         color: $color3
 
-    .requisites
+    .information
         margin-top: 50px
 
         h1
@@ -954,6 +954,18 @@
             list-style: none
         
         &__content
+            position: relative
+
+            .tables
+                width: 100%
+
+                ul
+                    margin-bottom: 50px
+
+                h2
+                    font-size: 26px
+                    font-weight: bold
+                    margin-bottom: 25px
 
 
             ul
@@ -974,8 +986,11 @@
                     font-weight: bold
 
             .document
+                position: sticky
+                top: 150px
                 width: 100%
                 margin-top: 30px
+                max-height: 400px
 
                 a
                     display: block
@@ -1663,14 +1678,14 @@
                     display: flex
                     justify-content: space-around
         
-        .requisites
+        .information
 
             &__content
                 display: flex
                 justify-content: space-between
 
-                ul
-                    width: 65%
+                .tables
+                    width: 55%
                 
                 .document
                     margin-top: 0

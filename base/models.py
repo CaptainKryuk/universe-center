@@ -68,3 +68,9 @@ class Coach(Model):
 
     def __str__(self):
         return self.name + ' -- ' + self.section.title
+
+# class SectionTableModel(Model):
+#     """
+#     Sport section in table list
+#     """
+#     name = CharField("Наименование секции", max_length=255)
