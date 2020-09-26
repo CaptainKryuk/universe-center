@@ -2682,11 +2682,6 @@ body {
   font-size: 24px;
   font-weight: bold;
 }
-/* line 1743, ../sass/style.sass */
-.form ul,
-.form li {
-  list-style: none;
-}
 /* line 1747, ../sass/style.sass */
 .form li {
   margin-bottom: 15px;
@@ -2830,16 +2825,6 @@ body {
   opacity: 0.75;
 }
 
-/* line 1869, ../sass/style.sass */
-ul {
-  list-style: none;
-}
-
-/* line 1872, ../sass/style.sass */
-li {
-  list-style: none;
-}
-
 @keyframes appear {
   0% {
     opacity: 0;
@@ -2856,7 +2841,7 @@ li {
     opacity: 0;
   }
 }
-/* line 1890, ../sass/style.sass */
+/* line 1884, ../sass/style.sass */
 .toasts_container {
   width: 320px;
   max-height: 360px;
@@ -2865,7 +2850,7 @@ li {
   right: 50px;
   z-index: 1000;
 }
-/* line 1898, ../sass/style.sass */
+/* line 1892, ../sass/style.sass */
 .toasts_container .my_toast {
   width: 100%;
   height: 90px;
@@ -2879,20 +2864,20 @@ li {
   background: #FDFDFC;
   animation: appear 0.5s linear;
 }
-/* line 1911, ../sass/style.sass */
+/* line 1905, ../sass/style.sass */
 .toasts_container .my_toast p {
   margin-bottom: 0;
 }
-/* line 1914, ../sass/style.sass */
+/* line 1908, ../sass/style.sass */
 .toasts_container .my_toast .text {
   padding: 15px 0;
 }
-/* line 1917, ../sass/style.sass */
+/* line 1911, ../sass/style.sass */
 .toasts_container .my_toast .toast_title {
   font-weight: bold;
   color: #130E20;
 }
-/* line 1922, ../sass/style.sass */
+/* line 1916, ../sass/style.sass */
 .toasts_container .my_toast .toast_desc {
   font-size: 14px;
   color: #6B6B72;
@@ -2901,18 +2886,18 @@ li {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* line 1931, ../sass/style.sass */
+/* line 1925, ../sass/style.sass */
 .toasts_container .my_toast .icon {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-/* line 1936, ../sass/style.sass */
+/* line 1930, ../sass/style.sass */
 .toasts_container .my_toast img {
   width: 30px;
   height: 30px;
 }
-/* line 1941, ../sass/style.sass */
+/* line 1935, ../sass/style.sass */
 .toasts_container .hide_toast {
   animation: hide 0.3s linear;
   animation-fill-mode: forwards;
