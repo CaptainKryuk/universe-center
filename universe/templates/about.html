@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% load markup_tags %}
+
+{% block content %}
+<section class="section about">
+
+    <h1 style="margin-top: 50px; font-size: 40px; font-weight: bold;">О нас</h1>
+    <p class="about__description">
+        «Вселенная» центр спортивного и интеллектуального развития для всей семьи.
+        Для самых маленьких гостей мы подготовили удобный мини детский сад и кружки раннего развития. 
+        Для детей постарше спортивные секции и интеллектуальный курс «МОЗГ». 
+        Программы для взрослых в нашем центре позволяют занятым мамам и папам потренироваться, получить удовольствие на занятиях, расслабиться и просто отдохнуть ожидая ребенка с тренировки.<br/><br/>
+
+        Мы  собрали в одном месте самые интересные секции, для развития спортивных, умственных и творческих способностей у детей, подростков и взрослых. Здесь учатся, тренируются, играют и соревнуются в более чем 10 различных видах спорта.<br/><br/>
+
+        Наш центр находится в районе Зябликово, в 5 минутах от метро Шипиловская.<br/><br/>
+
+        Центр Вселенная – это целый мир, полный открытий и счастливых моментов. Мир, где и маленьким, и большим найдется увлечение по душе!<br/><br/>
+    </p>
+
+    <div class="about__content">
+        <h1>Наша команда</h1>
+
+        <div class="coach">
+            <div class="text">
+                <p class="text__name">Солодовников Алексей Александрович</p>
+                <p class="text__rank">Главный тренер</p>
+                <p class="text__desc">определённых параметров, характерных для исследуемых тел и веществ. Полученные факты подвергаются упрощению, идеализации путём введения идеальных объектов. На основе идеализации создаются модели исследуемых объектов и явлений. Физические объекты, модели и идеальные объекты описываются на языке физических величин. Затем устанавливаются связи между явлениями природы и выражаются в форме физических законов[5]. Физические законы проверяются с помощью продуманного эксперимента, в </p>
+            </div>
+            <div class="coach__img">
+                <img src="/static/images/coaches/sanych.jpg">
+            </div>
+        </div>
+
+        <div class="coach">
+            <div class="text">
+                <p class="text__name">Полонская Диана Валерьевна</p>
+                <p class="text__rank">Директор центра</p>
+                <p class="text__desc">Физика — количественная наука. Физический эксперимент опирается на измерения, то есть сравнение характеристик исследуемых явлений с определёнными эталонами. С этой целью физика развила совокупность физических единиц и измерительных приборов. Отдельные физические единицы объединяются в системы физических единиц. Так, на современном этапе развития науки стандартом является Международная система </p>
+            </div>
+            <div class="coach__img">
+                <img src="/static/images/coaches/diana_ava.jpg">
+            </div>
+        </div>
+
+        <div class="coaches">
+            {% for coach in coaches %}
+            <div class="coaches__detail">
+                <img src="/media/{{ coach.photo }}" />
+                <p class="name">{{ coach.name }}</p>
+                <p class="rank">{{ coach.rank }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</section>
+
+<section style="margin: 50px 0">
+    <div style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/213/moscow/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Москва</a><a href="https://yandex.ru/maps/213/moscow/house/ulitsa_musy_dzhalilya_7k1/Z04YcQNjS0IDQFtvfXpzdnRrZA==/?ll=37.746333%2C55.628786&utm_medium=mapframe&utm_source=maps&z=17.01" style="color:#eee;font-size:12px;position:absolute;top:14px;">Улица Мусы Джалиля, 7к1 — Яндекс.Карты</a><iframe src="https://yandex.ru/map-widget/v1/-/CCQ3i0wCCD" width="100%" height="400" frameborder="0" allowfullscreen="true" style="position:relative;"></iframe></div>
+</section>
+{% endblock %}

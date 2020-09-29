@@ -3,7 +3,7 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from universe import settings
 
-from .views import index, gallery, sport_section, contact_form, requisites_view, pricelist_view
+from .views import index, gallery, sport_section, contact_form, requisites_view, pricelist_view, about_view
 
 urlpatterns = [
     path('', index, name="index"),
@@ -11,5 +11,6 @@ urlpatterns = [
     path('contact_form', contact_form),
     path('gallery', gallery, name="gallery"),
     path('requisites', requisites_view, name="requisites"),
-    path('services', pricelist_view, name="services")
+    path('services', pricelist_view, name="services"),
+    path('about', about_view, name="about")
 ]

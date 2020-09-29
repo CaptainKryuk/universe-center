@@ -101,3 +101,12 @@ def pricelist_view(request):
     return render(request, 'pricelist.html', context={'contact_form': ContactForm(),
                                                        'sections': get_sections(),
                                                        'title': "Секции"})
+
+def about_view(request):
+    # get coaches
+    coaches = Coach.objects.all()
+
+    return render(request, 'about.html', context={'contact_form': ContactForm(),
+                                                  'sections': get_sections(),
+                                                  'coaches': coaches,
+                                                  'title': "О нас"})

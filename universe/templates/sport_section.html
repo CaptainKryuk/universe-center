@@ -16,6 +16,10 @@
 
         <div class="sport__content__text">
             {{ sport.long_description|apply_markup:"markdown" }}
+
+            <div class="sport__content__pay">
+                <p class="desc">Групповые занятия - {{ sport.invoice }} / Месяц</p>
+                <script type="text/javascript" src="https://auth.robokassa.ru/Merchant/PaymentForm/FormFLS.js?MerchantLogin=universe-center&InvoiceID=0&Culture=ru&Encoding=utf-8&DefaultSum={{ sport.invoice }}&SignatureValue=3e9cc51243768c8620b5a8d8f6442ba4"></script>            </div>
         </div>
 
         <div class="sport__content__form">
