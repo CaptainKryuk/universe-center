@@ -227,6 +227,7 @@
         min-height: 100vh
         padding-top: 20px
         background-color: #FFFFFF
+
     .menu__item
         position: relative
         padding-left: 30px
@@ -278,6 +279,34 @@
             .link
                 width: 100%
 
+        .menu--secondary
+            position: relative
+            display: block
+            padding-top: 30px
+            padding-bottom: 16px
+            &:before
+                display: block
+                position: relative
+                content: attr(aria-label)
+                margin-bottom: 8px
+                padding-left: 30px
+                font-size: 12px
+                // font-weight: 600
+                text-transform: uppercase
+                color: $color2
+            &:not(:last-child)
+                &::after
+                    display: block
+                    content: ''
+                    position: absolute
+                    bottom: 0
+                    left: 30px
+                    width: calc(100% - 30px * 2)
+                    border-top: 1px solid $color4
+            .link
+                line-height: 1.7
+                // font-weight: 700
+
         &__item--dropdown-opened
             position: absolute
             top: 20px
@@ -287,33 +316,7 @@
             min-height: 100vh
             background-color: #FFFFFF
             z-index: 1
-            .menu--secondary
-                position: relative
-                display: block
-                padding-top: 30px
-                padding-bottom: 16px
-                &:before
-                    display: block
-                    position: relative
-                    content: attr(aria-label)
-                    margin-bottom: 8px
-                    padding-left: 30px
-                    font-size: 12px
-                    font-weight: 600
-                    text-transform: uppercase
-                    color: $color2
-                &:not(:last-child)
-                    &::after
-                        display: block
-                        content: ''
-                        position: absolute
-                        bottom: 0
-                        left: 30px
-                        width: calc(100% - 30px * 2)
-                        border-top: 1px solid $color4
-                .link
-                    line-height: 1.7
-                    font-weight: 700
+
             > .link
                 margin-bottom: 15px
                 padding-left: 30px
@@ -322,9 +325,6 @@
                 right: unset
                 left: 30px
                 background-image: url('../images/dest/icon--arrow-black.svg')
-            .wrapper
-                margin-left: -30px
-                border-top: 1px solid $color4
 
         
 
@@ -568,6 +568,7 @@
             border: 1px solid #F4F2E8
             border-radius: 5px
             box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.03)
+            transition: 0.3s
 
             &__title_block
                 display: flex
@@ -586,6 +587,9 @@
                 width: 40px
                 height: 40px
                 left: -6px
+        .list__item:hover
+            background: #fafafa
+            cursor: pointer
     .clients
         .list
             display: flex
@@ -1295,6 +1299,7 @@
                 font-size: 8px
                 line-height: 1.4
                 color: $color1
+
         .menu--primary
             position: static
             display: flex
@@ -1446,8 +1451,6 @@
                                 width: auto
                                 padding: unset
                                 text-align: left
-
-                    
 
                 
         .search

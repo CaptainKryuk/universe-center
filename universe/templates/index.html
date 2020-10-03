@@ -42,7 +42,7 @@
     <p class="text text--light">Наша цель - добиться гармонии в развитии личности.</p>
     <ul class="list">
         {% for sport in sections %}
-        <li class="list__item">
+        <li class="list__item" onclick="document.location.href = '/sport/{{ sport.slug }}'">
             <div class="list__item__title_block">
                 <img src="/media/{{ sport.img }}" alt="{{ sport.title }}" />
                 <p class="text title">{{ sport.title }}</p>

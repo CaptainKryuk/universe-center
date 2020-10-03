@@ -45,7 +45,7 @@ def sport_section(request, slug):
         if form.is_valid():
             for field in form:
                 html_text = '<br/>'.join(["{} - {}".format(field.label, field.data)])
-                send_email(html_text)
+            send_email(html_text)
             messages.add_message(request, messages.SUCCESS, 'Ваша вопрос успешно отправлен')
             return redirect(request.path)
         messages.add_message(request, messages.ERROR, 'Ошибка при заполнении формы, убедитесь в правильности её заполнения')

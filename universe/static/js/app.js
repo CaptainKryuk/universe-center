@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	const buttonMenu = header.querySelector(`.toggle button`);
 	const searchForm = header.querySelector(`.search`);
 	const menu = header.querySelector(`.menu--primary`);
-	const menuDropdown = header.querySelectorAll(`.menu__item--dropdown`);
+	const menuDropdown = header.querySelectorAll(`.menu__item--phone-dropdown`);
 
 	const headerSearch = headerBottom.querySelector(`.search--main`);
 	const headerSearchLabel = headerSearch.querySelector(`.label`);
@@ -47,14 +47,11 @@ document.addEventListener("DOMContentLoaded", function() {
 	// });
 
 	// notification
-	console.log('its work', document.querySelector('my_toast'))
 	document.querySelector('.my_toast').addEventListener('click', () => {
-		console.log('toast click')
 		document.querySelector('.my_toast').className = 'my_toast hide_toast'
 	})
 
 	setTimeout(() => {
-		console.log('toast timeout')
 		toast = document.querySelector('.my_toast')
 		toast.className = 'my_toast hide_toast'
 	}, 3000)
